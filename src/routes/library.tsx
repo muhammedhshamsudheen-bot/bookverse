@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { BookverseApp } from "@/components/bookverse/bookverse-app";
 
-export const Route = createFileRoute("/dashboard/")({
+export const Route = createFileRoute("/library")({
   head: () => ({
     meta: [
       { title: "My Reading Room | BOOKVERSE" },

@@ -74,11 +74,11 @@ export function BookverseApp({ page, bookId, query = "" }: { page: Page; bookId?
             <Link to="/explore" aria-label="Search books" className="grid size-10 place-items-center rounded-md text-muted-foreground transition hover:bg-secondary hover:text-foreground"><Search className="size-[18px]" /></Link>
             <Button variant="outline" className="hidden h-10 px-4 text-[13px] sm:inline-flex" onClick={() => setAuthOpen(true)}>Sign in</Button>
             <Button className="hidden h-10 gap-2 px-4 text-[13px] sm:inline-flex" onClick={() => setAuthOpen(true)}>Join free <ArrowRight className="size-4" /></Button>
-            <Link to="/dashboard" aria-label="My library" className="grid size-10 place-items-center rounded-full bg-secondary text-secondary-foreground transition hover:bg-accent"><LibraryBig className="size-[18px]" /></Link>
+            <Link to="/library" aria-label="My library" className="grid size-10 place-items-center rounded-full bg-secondary text-secondary-foreground transition hover:bg-accent"><LibraryBig className="size-[18px]" /></Link>
             <Button variant="ghost" size="icon" aria-label={mobileOpen ? "Close menu" : "Open menu"} className="xl:hidden" onClick={() => setMobileOpen((open) => !open)}>{mobileOpen ? <X /> : <Menu />}</Button>
           </div>
         </div>
-        {mobileOpen && <nav aria-label="Mobile navigation" className="grid gap-1 border-t border-border bg-background px-5 py-3 xl:hidden">{navItems.map((item) => <Link onClick={() => setMobileOpen(false)} key={item.to} to={item.to} className="rounded-md px-3 py-2.5 text-sm font-medium hover:bg-secondary">{item.label}</Link>)}<Link onClick={() => setMobileOpen(false)} to="/dashboard" className="rounded-md px-3 py-2.5 text-sm font-medium hover:bg-secondary">My library</Link></nav>}
+        {mobileOpen && <nav aria-label="Mobile navigation" className="grid gap-1 border-t border-border bg-background px-5 py-3 xl:hidden">{navItems.map((item) => <Link onClick={() => setMobileOpen(false)} key={item.to} to={item.to} className="rounded-md px-3 py-2.5 text-sm font-medium hover:bg-secondary">{item.label}</Link>)}<Link onClick={() => setMobileOpen(false)} to="/library" className="rounded-md px-3 py-2.5 text-sm font-medium hover:bg-secondary">My library</Link></nav>}
       </header>
 
       <main>
@@ -111,7 +111,7 @@ function HomePage({ onRead }: { onRead: (book: Book) => void }) {
   return (
     <>
       <section className="relative isolate min-h-[570px] overflow-hidden bg-primary text-primary-foreground lg:min-h-[620px]">
-        <img src={new URL("@/assets/bookverse-hero.jpg", import.meta.url).href} alt="An open book on a warmly lit reading desk" width={1600} height={1008} className="absolute inset-0 -z-20 size-full object-cover object-center" />
+        <img src={heroImage} alt="An open book on a warmly lit reading desk" width={1600} height={1008} className="absolute inset-0 -z-20 size-full object-cover object-center" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary via-primary/90 to-primary/20" />
         <div className="mx-auto flex min-h-[570px] max-w-[1380px] items-center px-5 py-16 lg:min-h-[620px] lg:px-8">
           <div className="max-w-[620px]">
@@ -177,7 +177,7 @@ function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) 
 
 function BookGrid({ items, onRead }: { items: Book[]; onRead: (book: Book) => void }) {
   if (!items.length) return <p className="rounded-lg border border-dashed border-border px-5 py-10 text-center text-sm text-muted-foreground">No books match those filters. Try changing your search.</p>;
-  return <div className="grid grid-cols-2 gap-x-4 gap-y-7 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">{items.map((book) => <BookCard key={book.id} book={book} onRead={onRead} />)}</div>;
+      <div className="grid grid-cols-2 gap-x-4 gap-y-7 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">{items.map((book) => <BookCard key={book.id} book={book} onRead={onRead} />)}</div>
 }
 
 function BookCard({ book, onRead }: { book: Book; onRead: (book: Book) => void }) {

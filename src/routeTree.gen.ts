@@ -10,33 +10,154 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AuthorsRouteImport } from './routes/authors'
+import { Route as CategoriesRouteImport } from './routes/categories'
+import { Route as ExploreRouteImport } from './routes/explore'
+import { Route as FreeRouteImport } from './routes/free'
+import { Route as PremiumRouteImport } from './routes/premium'
+import { Route as BooksBookIdRouteImport } from './routes/books.$bookId'
+import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
+import { Route as DashboardAuthorRouteImport } from './routes/dashboard.author'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthorsRoute = AuthorsRouteImport.update({
+  id: '/authors',
+  path: '/authors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CategoriesRoute = CategoriesRouteImport.update({
+  id: '/categories',
+  path: '/categories',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExploreRoute = ExploreRouteImport.update({
+  id: '/explore',
+  path: '/explore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FreeRoute = FreeRouteImport.update({
+  id: '/free',
+  path: '/free',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PremiumRoute = PremiumRouteImport.update({
+  id: '/premium',
+  path: '/premium',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BooksBookIdRoute = BooksBookIdRouteImport.update({
+  id: '/books/$bookId',
+  path: '/books/$bookId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardIndexRoute = DashboardIndexRouteImport.update({
+  id: '/dashboard/',
+  path: '/dashboard/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardAuthorRoute = DashboardAuthorRouteImport.update({
+  id: '/dashboard/author',
+  path: '/dashboard/author',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/authors': typeof AuthorsRoute
+  '/categories': typeof CategoriesRoute
+  '/explore': typeof ExploreRoute
+  '/free': typeof FreeRoute
+  '/premium': typeof PremiumRoute
+  '/books/$bookId': typeof BooksBookIdRoute
+  '/dashboard/author': typeof DashboardAuthorRoute
+  '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/authors': typeof AuthorsRoute
+  '/categories': typeof CategoriesRoute
+  '/explore': typeof ExploreRoute
+  '/free': typeof FreeRoute
+  '/premium': typeof PremiumRoute
+  '/books/$bookId': typeof BooksBookIdRoute
+  '/dashboard/author': typeof DashboardAuthorRoute
+  '/dashboard': typeof DashboardIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/authors': typeof AuthorsRoute
+  '/categories': typeof CategoriesRoute
+  '/explore': typeof ExploreRoute
+  '/free': typeof FreeRoute
+  '/premium': typeof PremiumRoute
+  '/books/$bookId': typeof BooksBookIdRoute
+  '/dashboard/author': typeof DashboardAuthorRoute
+  '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/authors'
+    | '/categories'
+    | '/explore'
+    | '/free'
+    | '/premium'
+    | '/books/$bookId'
+    | '/dashboard/author'
+    | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/admin'
+    | '/authors'
+    | '/categories'
+    | '/explore'
+    | '/free'
+    | '/premium'
+    | '/books/$bookId'
+    | '/dashboard/author'
+    | '/dashboard'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/authors'
+    | '/categories'
+    | '/explore'
+    | '/free'
+    | '/premium'
+    | '/books/$bookId'
+    | '/dashboard/author'
+    | '/dashboard/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
+  AuthorsRoute: typeof AuthorsRoute
+  CategoriesRoute: typeof CategoriesRoute
+  ExploreRoute: typeof ExploreRoute
+  FreeRoute: typeof FreeRoute
+  PremiumRoute: typeof PremiumRoute
+  BooksBookIdRoute: typeof BooksBookIdRoute
+  DashboardAuthorRoute: typeof DashboardAuthorRoute
+  DashboardIndexRoute: typeof DashboardIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +169,83 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/authors': {
+      id: '/authors'
+      path: '/authors'
+      fullPath: '/authors'
+      preLoaderRoute: typeof AuthorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/categories': {
+      id: '/categories'
+      path: '/categories'
+      fullPath: '/categories'
+      preLoaderRoute: typeof CategoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/explore': {
+      id: '/explore'
+      path: '/explore'
+      fullPath: '/explore'
+      preLoaderRoute: typeof ExploreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/free': {
+      id: '/free'
+      path: '/free'
+      fullPath: '/free'
+      preLoaderRoute: typeof FreeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/premium': {
+      id: '/premium'
+      path: '/premium'
+      fullPath: '/premium'
+      preLoaderRoute: typeof PremiumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/books/$bookId': {
+      id: '/books/$bookId'
+      path: '/books/$bookId'
+      fullPath: '/books/$bookId'
+      preLoaderRoute: typeof BooksBookIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/': {
+      id: '/dashboard/'
+      path: '/dashboard'
+      fullPath: '/dashboard/'
+      preLoaderRoute: typeof DashboardIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/author': {
+      id: '/dashboard/author'
+      path: '/dashboard/author'
+      fullPath: '/dashboard/author'
+      preLoaderRoute: typeof DashboardAuthorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
+  AuthorsRoute: AuthorsRoute,
+  CategoriesRoute: CategoriesRoute,
+  ExploreRoute: ExploreRoute,
+  FreeRoute: FreeRoute,
+  PremiumRoute: PremiumRoute,
+  BooksBookIdRoute: BooksBookIdRoute,
+  DashboardAuthorRoute: DashboardAuthorRoute,
+  DashboardIndexRoute: DashboardIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
