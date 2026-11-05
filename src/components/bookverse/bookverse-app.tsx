@@ -33,9 +33,12 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import heroImage from "@/assets/bookverse-hero.jpg";
 import { bookById, books, membershipPlans, searchBooks, type Book } from "@/lib/bookverse-data";
 
 type Page = "home" | "explore" | "categories" | "free" | "premium" | "authors" | "customer" | "author-dashboard" | "admin" | "book";
+
+type AppPath = "/" | "/explore" | "/categories" | "/free" | "/premium" | "/authors" | "/library" | "/author-studio" | "/admin";
 
 const navItems = [
   { label: "Home", to: "/" as const },
@@ -71,7 +74,7 @@ export function BookverseApp({ page, bookId, query = "" }: { page: Page; bookId?
             ))}
           </nav>
           <div className="flex items-center gap-2.5">
-            <Link to="/explore" aria-label="Search books" className="grid size-10 place-items-center rounded-md text-muted-foreground transition hover:bg-secondary hover:text-foreground"><Search className="size-[18px]" /></Link>
+            <Link to="/explore" search={{ q: "" }} aria-label="Search books" className="grid size-10 place-items-center rounded-md text-muted-foreground transition hover:bg-secondary hover:text-foreground"><Search className="size-[18px]" /></Link>
             <Button variant="outline" className="hidden h-10 px-4 text-[13px] sm:inline-flex" onClick={() => setAuthOpen(true)}>Sign in</Button>
             <Button className="hidden h-10 gap-2 px-4 text-[13px] sm:inline-flex" onClick={() => setAuthOpen(true)}>Join free <ArrowRight className="size-4" /></Button>
             <Link to="/library" aria-label="My library" className="grid size-10 place-items-center rounded-full bg-secondary text-secondary-foreground transition hover:bg-accent"><LibraryBig className="size-[18px]" /></Link>

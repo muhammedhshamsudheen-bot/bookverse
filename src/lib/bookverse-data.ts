@@ -19,7 +19,7 @@ export type Book = {
   published: string;
 };
 
-export const books: Book[] = [
+export const books: [Book, ...Book[]] = [
   {
     id: "monsoon-letters",
     title: "Letters from the Monsoon",
