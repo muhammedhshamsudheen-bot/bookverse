@@ -28,3 +28,6 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## BOOKVERSE Phase 1
+- Keep the preview catalog in a shared, typed sample-data module and render it through reusable UI across file-based pages; Phase 1 is intentionally frontend-only, so no account, purchase, or admin action may claim persistence or authorization.

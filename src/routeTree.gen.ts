@@ -10,33 +10,154 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AuthorStudioRouteImport } from './routes/author-studio'
+import { Route as AuthorsRouteImport } from './routes/authors'
+import { Route as CategoriesRouteImport } from './routes/categories'
+import { Route as ExploreRouteImport } from './routes/explore'
+import { Route as FreeRouteImport } from './routes/free'
+import { Route as LibraryRouteImport } from './routes/library'
+import { Route as PremiumRouteImport } from './routes/premium'
+import { Route as BooksBookIdRouteImport } from './routes/books.$bookId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthorStudioRoute = AuthorStudioRouteImport.update({
+  id: '/author-studio',
+  path: '/author-studio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthorsRoute = AuthorsRouteImport.update({
+  id: '/authors',
+  path: '/authors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CategoriesRoute = CategoriesRouteImport.update({
+  id: '/categories',
+  path: '/categories',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExploreRoute = ExploreRouteImport.update({
+  id: '/explore',
+  path: '/explore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FreeRoute = FreeRouteImport.update({
+  id: '/free',
+  path: '/free',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LibraryRoute = LibraryRouteImport.update({
+  id: '/library',
+  path: '/library',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PremiumRoute = PremiumRouteImport.update({
+  id: '/premium',
+  path: '/premium',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BooksBookIdRoute = BooksBookIdRouteImport.update({
+  id: '/books/$bookId',
+  path: '/books/$bookId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/author-studio': typeof AuthorStudioRoute
+  '/authors': typeof AuthorsRoute
+  '/categories': typeof CategoriesRoute
+  '/explore': typeof ExploreRoute
+  '/free': typeof FreeRoute
+  '/library': typeof LibraryRoute
+  '/premium': typeof PremiumRoute
+  '/books/$bookId': typeof BooksBookIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/author-studio': typeof AuthorStudioRoute
+  '/authors': typeof AuthorsRoute
+  '/categories': typeof CategoriesRoute
+  '/explore': typeof ExploreRoute
+  '/free': typeof FreeRoute
+  '/library': typeof LibraryRoute
+  '/premium': typeof PremiumRoute
+  '/books/$bookId': typeof BooksBookIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/author-studio': typeof AuthorStudioRoute
+  '/authors': typeof AuthorsRoute
+  '/categories': typeof CategoriesRoute
+  '/explore': typeof ExploreRoute
+  '/free': typeof FreeRoute
+  '/library': typeof LibraryRoute
+  '/premium': typeof PremiumRoute
+  '/books/$bookId': typeof BooksBookIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/author-studio'
+    | '/authors'
+    | '/categories'
+    | '/explore'
+    | '/free'
+    | '/library'
+    | '/premium'
+    | '/books/$bookId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/admin'
+    | '/author-studio'
+    | '/authors'
+    | '/categories'
+    | '/explore'
+    | '/free'
+    | '/library'
+    | '/premium'
+    | '/books/$bookId'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/author-studio'
+    | '/authors'
+    | '/categories'
+    | '/explore'
+    | '/free'
+    | '/library'
+    | '/premium'
+    | '/books/$bookId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
+  AuthorStudioRoute: typeof AuthorStudioRoute
+  AuthorsRoute: typeof AuthorsRoute
+  CategoriesRoute: typeof CategoriesRoute
+  ExploreRoute: typeof ExploreRoute
+  FreeRoute: typeof FreeRoute
+  LibraryRoute: typeof LibraryRoute
+  PremiumRoute: typeof PremiumRoute
+  BooksBookIdRoute: typeof BooksBookIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +169,83 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/author-studio': {
+      id: '/author-studio'
+      path: '/author-studio'
+      fullPath: '/author-studio'
+      preLoaderRoute: typeof AuthorStudioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/authors': {
+      id: '/authors'
+      path: '/authors'
+      fullPath: '/authors'
+      preLoaderRoute: typeof AuthorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/categories': {
+      id: '/categories'
+      path: '/categories'
+      fullPath: '/categories'
+      preLoaderRoute: typeof CategoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/explore': {
+      id: '/explore'
+      path: '/explore'
+      fullPath: '/explore'
+      preLoaderRoute: typeof ExploreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/free': {
+      id: '/free'
+      path: '/free'
+      fullPath: '/free'
+      preLoaderRoute: typeof FreeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/library': {
+      id: '/library'
+      path: '/library'
+      fullPath: '/library'
+      preLoaderRoute: typeof LibraryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/premium': {
+      id: '/premium'
+      path: '/premium'
+      fullPath: '/premium'
+      preLoaderRoute: typeof PremiumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/books/$bookId': {
+      id: '/books/$bookId'
+      path: '/books/$bookId'
+      fullPath: '/books/$bookId'
+      preLoaderRoute: typeof BooksBookIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
+  AuthorStudioRoute: AuthorStudioRoute,
+  AuthorsRoute: AuthorsRoute,
+  CategoriesRoute: CategoriesRoute,
+  ExploreRoute: ExploreRoute,
+  FreeRoute: FreeRoute,
+  LibraryRoute: LibraryRoute,
+  PremiumRoute: PremiumRoute,
+  BooksBookIdRoute: BooksBookIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
