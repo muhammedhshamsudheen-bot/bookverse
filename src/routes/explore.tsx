@@ -3,9 +3,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { BookverseApp } from "@/components/bookverse/bookverse-app";
 
 export const Route = createFileRoute("/explore")({
-  validateSearch: (search: Record<string, unknown>): { q?: string } => ({
-    q: typeof search["q"] === "string" ? search["q"] : undefined,
-  }),
   head: () => ({
     meta: [
       { title: "Explore Books | BOOKVERSE" },
@@ -20,6 +17,5 @@ export const Route = createFileRoute("/explore")({
 });
 
 function ExploreRoute() {
-  const { q } = Route.useSearch();
-  return <BookverseApp page="explore" query={q} />;
+  return <BookverseApp page="explore" />;
 }
